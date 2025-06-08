@@ -1,0 +1,39 @@
+# Create a README file
+cat > README.md << EOF
+# AI Support Agent Foundation
+
+A modern support ticket system with AI automation capabilities.
+
+## Features
+- 🤖 AI-powered ticket analysis
+- 📊 Real-time status tracking
+- 🎨 Modern React/Next.js frontend
+- ⚡ FastAPI backend
+- 🔗 Ready for Jira integration
+
+## Setup
+\`\`\`bash
+# Backend
+cd backend
+pip install fastapi uvicorn
+python main.py
+
+# Frontend
+cd frontend
+npm install
+npm run dev
+\`\`\`
+
+## Usage
+1. Open http://localhost:3000
+2. Create support tickets
+3. Monitor AI processing
+4. Check ticket status
+
+Built with ❤️ for automated customer support.
+EOF
+
+# Add and commit README
+git add README.md
+git commit -m "Add README with project description"
+git push
