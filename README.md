@@ -20,8 +20,6 @@
 - Node.js 16+
 - Git
 
-
-
 ### 1️⃣ Clone & Setup
 ```bash
 git clone https://github.com/dfadeeff/ticket-support-agent-foundation.git
@@ -31,8 +29,8 @@ cd ticket-support-agent-foundation
 ### 2️⃣ Backend Setup (Terminal 1)
 ```bash
 cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install fastapi uvicorn python-multipart
 python main.py
 ```
@@ -101,19 +99,29 @@ python main.py
 ## 📁 Project Structure
 
 ```
-ticket-support-agent-foundation/
+support-agent/
+├── 📂 .venv/             # Python virtual environment
+├── 📂 assets/            # Screenshots & media
+│   └── dashboard-screenshot.png
 ├── 📂 backend/           # FastAPI server
-│   ├── main.py          # Main API endpoints
-│   ├── ai_agent.py      # AI processing logic
-│   └── tickets.py       # Ticket management
-├── 📂 frontend/         # Next.js React app
-│   ├── app/
-│   │   ├── page.tsx     # Main dashboard
-│   │   ├── layout.tsx   # App layout
-│   │   └── globals.css  # Styling
-│   └── package.json     # Dependencies
-├── 📂 assets/           # Screenshots & media
-└── README.md           # This file
+│   ├── 📂 app/
+│   │   ├── 📂 api/
+│   │   │   ├── __init__.py
+│   │   │   └── tickets.py    # API routes
+│   │   └── 📂 services/
+│   │       └── __init__.py
+│   ├── main.py           # Main FastAPI application
+│   └── requirements.txt  # Python dependencies
+├── 📂 frontend/          # Next.js React app
+│   ├── 📂 app/
+│   │   ├── page.tsx      # Main dashboard component
+│   │   ├── layout.tsx    # App layout
+│   │   └── globals.css   # Global styling
+│   ├── package.json      # Node.js dependencies
+│   ├── tsconfig.json     # TypeScript config
+│   └── next-env.d.ts     # Next.js types
+├── .gitignore           # Git ignore rules
+└── README.md            # This file
 ```
 
 ## 🚀 Deployment Options
@@ -175,18 +183,10 @@ pm2 start "npm start" --name support-ui
 
 ### Custom UI Themes
 ```css
-/* In globals.css, change gradient: */
+/* In frontend/app/globals.css, change gradient: */
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
-```
-
-### API Extensions
-```python
-# Add new endpoints in main.py:
-@app.get("/api/analytics")
-async def get_analytics():
-    return {"auto_resolution_rate": "65%"}
 ```
 
 ## 🤝 Contributing
@@ -199,7 +199,7 @@ async def get_analytics():
 
 ## 📝 License
 
-Apache-2.0 license
+MIT License - feel free to use in commercial projects!
 
 ## 🆘 Support
 
@@ -220,5 +220,3 @@ Apache-2.0 license
 ---
 
 ⭐ **Star this repo if it helped you build amazing support automation!**
-
-Built with ❤️ by [@dfadeeff](https://github.com/dfadeeff)
